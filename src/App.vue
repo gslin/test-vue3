@@ -17,6 +17,11 @@
 </template>
 
 <script setup lang="ts">
+/* vue */
+import { onMounted } from 'vue';
+
+onMounted(() => {
+});
 </script>
 
 <style scoped>
