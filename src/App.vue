@@ -11,11 +11,8 @@
             class="w-full"
             credits="false"
             label-idle="Drag files &amp; drag to here, or click this area"
-            name="tFiles"
             ref="pond"
-            server="https://httpbin.org/anything"
             :allow-reorder="true"
-            :files="tFiles"
             :instant-upload="false"
           >
           </file-pond>
