@@ -1,5 +1,5 @@
 <template>
-<div class="container mx-auto">
+<div class="container mt-4 mx-auto">
   <h1 class="font-bold text-3xl">File Upload</h1>
   <div class="my-2">
     <form action="https://httpbin.org/anything" id="image-upload-form" method="post">
