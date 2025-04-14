@@ -34,6 +34,19 @@
             @click.prevent="uploadFiles"
           />
         </div>
+
+        <h2>vee-validate</h2>
+        <div class="flex flex-wrap items-center gap-2">
+          <div>Field</div>
+          <input
+            class="bg-gray-100 border rounded-lg p-2"
+            type="text"
+            v-model="fieldValue"
+          />
+          <div class="font-medium text-red-500 w-full">
+            {{ fieldErrorMessage }}
+          </div>
+        </div>
       </div>
     </form>
   </div>
@@ -50,6 +63,7 @@ import vueFilePond from 'vue-filepond';
 import 'filepond/dist/filepond.min.css';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+import { useField } from 'vee-validate';
 
 /* refs */
 const tFiles = ref([]);
@@ -71,6 +85,8 @@ const uploadFiles = () => {
 };
 
 const FilePond = vueFilePond(FilePondPluginImagePreview);
+
+const { value: fieldValue, errorMessage: fieldErrorMessage } = useField('field', e => !!e);
 </script>
 
 <style type="postcss">
