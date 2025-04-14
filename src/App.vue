@@ -40,7 +40,7 @@
 </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 /* vue */
 import { ref } from 'vue';
 
