@@ -40,11 +40,12 @@
           <div>Field</div>
           <input
             class="bg-gray-100 border rounded-lg p-2"
+            name="field"
             type="text"
-            v-model="fieldValue"
+            v-model="formData.field"
           />
           <div class="font-medium text-red-500 w-full">
-            {{ fieldErrorMessage }}
+            {{ formError.field }}
           </div>
         </div>
       </div>
@@ -55,7 +56,7 @@
 
 <script setup>
 /* vue */
-import { ref } from 'vue';
+import { reactive, ref } from 'vue';
 
 /* 3rd-party */
 import axios from 'axios';
@@ -64,6 +65,10 @@ import 'filepond/dist/filepond.min.css';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
 import { useField } from 'vee-validate';
+
+/* reactives */
+const formData = reactive({});
+const formError = reactive({});
 
 /* refs */
 const tFiles = ref([]);
@@ -87,6 +92,8 @@ const uploadFiles = () => {
 const FilePond = vueFilePond(FilePondPluginImagePreview);
 
 const { value: fieldValue, errorMessage: fieldErrorMessage } = useField('field', v => !!v);
+formData.field = fieldValue;
+formError.field = fieldErrorMessage;
 </script>
 
 <style type="postcss">
