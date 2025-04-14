@@ -73,9 +73,8 @@ const uploadFiles = () => {
 const FilePond = vueFilePond(FilePondPluginImagePreview);
 </script>
 
-<style>
+<style type="postcss">
 .filepond--item {
-  display: inline-block;
-  width: 100px;
+  @apply inline-block w-[100px];
 }
 </style>
