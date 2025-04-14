@@ -86,7 +86,7 @@ const uploadFiles = () => {
 
 const FilePond = vueFilePond(FilePondPluginImagePreview);
 
-const { value: fieldValue, errorMessage: fieldErrorMessage } = useField('field', e => !!e);
+const { value: fieldValue, errorMessage: fieldErrorMessage } = useField('field', v => !!v);
 </script>
 
 <style type="postcss">
