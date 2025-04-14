@@ -64,6 +64,7 @@ import vueFilePond from 'vue-filepond';
 import 'filepond/dist/filepond.min.css';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+import * as yup from 'yup';
 import { useField } from 'vee-validate';
 
 /* reactives */
@@ -91,7 +92,7 @@ const uploadFiles = () => {
 
 const FilePond = vueFilePond(FilePondPluginImagePreview);
 
-const { value: fieldValue, errorMessage: fieldErrorMessage } = useField('field', v => !!v);
+const { value: fieldValue, errorMessage: fieldErrorMessage } = useField('field', yup.string().required());
 formData.field = fieldValue;
 formError.field = fieldErrorMessage;
 </script>
