@@ -16,8 +16,7 @@
     "filepond-plugin-image-preview": "^4.6.12",
     "vee-validate": "^4.15.0",
     "vue": "^3.5.12",
-    "vue-filepond": "^7.0.4",
-    "yup": "^1.6.1"
+    "vue-filepond": "^7.0.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
