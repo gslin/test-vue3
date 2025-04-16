@@ -40,9 +40,15 @@
           <div>Field</div>
           <input
             class="bg-gray-100 border rounded-lg p-2"
-            name="field"
+            name="field1"
             type="text"
-            v-model="formData.field"
+            v-model="formData.field1"
+          />
+          <input
+            class="bg-gray-100 border rounded-lg p-2"
+            name="field2"
+            type="text"
+            v-model="formData.field2"
           />
           <div class="font-medium text-red-500 w-full">
             {{ formError.field }}
@@ -56,7 +62,7 @@
 
 <script setup>
 /* vue */
-import { reactive, ref } from 'vue';
+import { computed, reactive, ref } from 'vue';
 
 /* 3rd-party */
 import axios from 'axios';
@@ -64,8 +70,6 @@ import vueFilePond from 'vue-filepond';
 import 'filepond/dist/filepond.min.css';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
-import * as yup from 'yup';
-import { useField } from 'vee-validate';
 
 /* reactives */
 const formData = reactive({});
@@ -74,6 +78,13 @@ const formError = reactive({});
 /* refs */
 const tFiles = ref([]);
 const pond = ref();
+
+/* validators */
+formError.field = computed(() => {
+  if (formData.field1 === '' || formData.field2 === '') {
+    return 'Field is required';
+  }
+});
 
 /* handlers */
 const uploadFiles = () => {
@@ -91,10 +102,6 @@ const uploadFiles = () => {
 };
 
 const FilePond = vueFilePond(FilePondPluginImagePreview);
-
-const { value: fieldValue, errorMessage: fieldErrorMessage } = useField('field', yup.string().required());
-formData.field = fieldValue;
-formError.field = fieldErrorMessage;
 </script>
 
 <style type="postcss">
